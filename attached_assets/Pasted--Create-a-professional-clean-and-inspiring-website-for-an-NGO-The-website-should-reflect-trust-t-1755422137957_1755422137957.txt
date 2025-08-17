@@ -1,0 +1,69 @@
+“Create a professional, clean, and inspiring website for an NGO. The website should reflect trust, transparency, and social impact. The design should use warm and human-centered visuals with modern, mobile-friendly layouts. The primary call-to-action should encourage donations and volunteering. Include the following sections:
+
+Home Page
+
+A powerful hero section with the NGO’s mission tagline and a background image/video showing the cause.
+
+Quick call-to-action buttons: Donate Now, Get Involved, Learn More.
+
+Brief introduction of the NGO with links to deeper sections.
+
+Highlight of 2–3 key programs/projects with visuals.
+
+Impact numbers (e.g., people helped, events organized).
+
+Footer with contact info and social media links.
+
+About Us
+
+Clear mission, vision, and values statement.
+
+The story behind the NGO (origin and purpose).
+
+Profiles of founders, team members, and key partners with photos.
+
+Get Involved
+
+Volunteer sign-up form with options (events, fieldwork, fundraising, etc.).
+
+Opportunities for partnerships and internships.
+
+Inspiring visuals/testimonials from volunteers.
+
+Donate Section
+
+Secure online donation system (support PayPal, credit/debit card, UPI).
+
+Options for one-time or recurring donations.
+
+Transparency message: “Where your money goes” with a breakdown (e.g., 70% projects, 20% operations, 10% outreach).
+
+Trust badges (SSL secure, tax exemption info if available).
+
+Events & Campaigns
+
+Upcoming events calendar with RSVP or registration option.
+
+Ongoing campaigns with progress bars (e.g., fundraising goals).
+
+Past event highlights with photos/videos.
+
+Gallery
+
+Photo gallery showcasing fieldwork, beneficiaries, and events.
+
+Video gallery for storytelling and media coverage.
+
+Organized by year or project for easy navigation.
+
+General Design Guidelines:
+
+Color scheme: warm, hopeful, and human-focused (greens, blues, or earthy tones).
+
+Fonts: clean and modern, with emphasis on readability.
+
+Layout: simple navigation menu with clear CTAs (Donate, Volunteer, Contact).
+
+Responsive design optimized for mobile.
+
+SEO-friendly structure with alt text for images.
