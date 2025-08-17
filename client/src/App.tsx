@@ -12,6 +12,7 @@ import GetInvolved from "@/pages/get-involved";
 import Donate from "@/pages/donate";
 import Events from "@/pages/events";
 import Gallery from "@/pages/gallery";
+import VolunteerRegistration from "@/pages/volunteer-registration";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -27,6 +28,7 @@ function Router() {
           <Route path="/donate" component={Donate} />
           <Route path="/events" component={Events} />
           <Route path="/gallery" component={Gallery} />
+          <Route path="/volunteer-registration" component={VolunteerRegistration} />
           <Route component={NotFound} />
         </Switch>
       </main>

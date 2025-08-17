@@ -1,77 +1,80 @@
-import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
+import { Users, Heart, Utensils, Target } from "lucide-react";
 
 const stats = [
-  { label: "Lives Impacted", value: 15000, color: "text-forest" },
-  { label: "Projects Completed", value: 120, color: "text-ocean" },
-  { label: "Communities Served", value: 85, color: "text-warm-orange" },
-  { label: "Active Volunteers", value: 2500, color: "text-forest" }
+  {
+    icon: Users,
+    value: "10,000+",
+    label: "Children Fed",
+    description: "Through our community kitchen initiatives"
+  },
+  {
+    icon: Heart,
+    value: "50+",
+    label: "Communities Served",
+    description: "Across multiple regions in India"
+  },
+  {
+    icon: Utensils,
+    value: "500,000+",
+    label: "Meals Provided",
+    description: "Nutritious meals served to date"
+  },
+  {
+    icon: Target,
+    value: "95%",
+    label: "Success Rate",
+    description: "Of children showing improved nutrition"
+  }
 ];
-
-function AnimatedCounter({ value, duration = 2000 }: { value: number; duration?: number }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    if (isInView) {
-      const startTime = Date.now();
-      const endTime = startTime + duration;
-      
-      const updateCount = () => {
-        const currentTime = Date.now();
-        const progress = Math.min((currentTime - startTime) / duration, 1);
-        
-        // Easing function for smoother animation
-        const easedProgress = 1 - Math.pow(1 - progress, 3);
-        const currentCount = Math.floor(easedProgress * value);
-        
-        setCount(currentCount);
-        
-        if (progress < 1) {
-          requestAnimationFrame(updateCount);
-        }
-      };
-      
-      requestAnimationFrame(updateCount);
-    }
-  }, [isInView, value, duration]);
-
-  return (
-    <div ref={ref} className="text-4xl md:text-5xl font-bold mb-2">
-      {count.toLocaleString()}
-    </div>
-  );
-}
 
 export default function ImpactStats() {
   return (
-    <section className="py-16 bg-white" data-testid="impact-stats-section">
+    <section className="py-20 bg-orange-50">
       <div className="container mx-auto px-4">
         <motion.div 
-          className="grid grid-cols-2 md:grid-cols-4 gap-8"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          {stats.map((stat, index) => (
-            <motion.div 
-              key={stat.label}
-              className="text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}
-            >
-              <div className={stat.color}>
-                <AnimatedCounter value={stat.value} />
-              </div>
-              <p className="text-gray-600 font-medium">{stat.label}</p>
-            </motion.div>
-          ))}
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Our Impact in Numbers
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Every number represents a life changed, a child nourished, and a community strengthened.
+          </p>
         </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {stats.map((stat, index) => {
+            const IconComponent = stat.icon;
+            return (
+              <motion.div
+                key={stat.label}
+                className="text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <IconComponent className="text-white h-8 w-8" />
+                </div>
+                <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-lg font-semibold text-gray-700 mb-2">
+                  {stat.label}
+                </div>
+                <p className="text-gray-600 text-sm">
+                  {stat.description}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

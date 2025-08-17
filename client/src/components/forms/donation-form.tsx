@@ -13,29 +13,29 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { insertDonationSchema } from "@shared/schema";
-import { CreditCard, Shield, Lock } from "lucide-react";
+import { CreditCard, Shield, Lock, Utensils } from "lucide-react";
 
 const donationFormSchema = insertDonationSchema.extend({
-  amount: z.number().min(1, "Amount must be at least $1"),
+  amount: z.number().min(1, "Amount must be at least ₹1"),
   donorName: z.string().optional(),
   donorEmail: z.string().email("Please enter a valid email address").optional()
 });
 
 type DonationFormData = z.infer<typeof donationFormSchema>;
 
-const predefinedAmounts = [25, 50, 100, 250];
+const predefinedAmounts = [500, 1000, 2500, 5000];
 
 const designationOptions = [
   { value: "general", label: "Where Most Needed" },
-  { value: "education", label: "Education Programs" },
-  { value: "healthcare", label: "Healthcare Initiatives" },
-  { value: "environment", label: "Environmental Projects" },
-  { value: "emergency", label: "Emergency Relief Fund" }
+  { value: "community-kitchen", label: "Community Kitchen Programs" },
+  { value: "child-nutrition", label: "Child Nutrition Initiatives" },
+  { value: "emergency-relief", label: "Emergency Hunger Relief" },
+  { value: "sustainable-programs", label: "Sustainable Food Programs" }
 ];
 
 const paymentMethods = [
   { value: "card", label: "Credit/Debit Card", icon: CreditCard },
-  { value: "paypal", label: "PayPal", icon: Shield },
+  { value: "upi", label: "UPI", icon: Shield },
   { value: "bank", label: "Bank Transfer", icon: Lock }
 ];
 
@@ -61,12 +61,12 @@ export default function DonationForm() {
     mutationFn: (data: DonationFormData) => 
       apiRequest("POST", "/api/donations", {
         ...data,
-        amount: Math.round(data.amount * 100) // Convert to cents
+        amount: Math.round(data.amount * 100) // Convert to paise
       }),
     onSuccess: () => {
       toast({
         title: "Thank You for Your Donation!",
-        description: "Your contribution will make a real difference in our communities.",
+        description: "Your contribution will help feed underprivileged children in India.",
       });
       form.reset();
       queryClient.invalidateQueries({ queryKey: ["/api/donations"] });
@@ -106,9 +106,12 @@ export default function DonationForm() {
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
-      <Card className="bg-soft-gray shadow-lg">
+      <Card className="bg-white shadow-lg border border-gray-200">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold text-dark-slate">Choose Your Impact</CardTitle>
+          <CardTitle className="text-2xl font-bold text-gray-900 flex items-center">
+            <Utensils className="h-6 w-6 text-orange-500 mr-2" />
+            Choose Your Impact
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -128,19 +131,19 @@ export default function DonationForm() {
                           variant="outline"
                           className={`py-3 px-4 text-center transition-all ${
                             selectedAmount === amount
-                              ? "border-forest bg-forest text-white"
-                              : "border-gray-200 hover:border-forest hover:bg-forest hover:text-white"
+                              ? "border-orange-500 bg-orange-500 text-white"
+                              : "border-gray-200 hover:border-orange-500 hover:bg-orange-500 hover:text-white"
                           }`}
                           onClick={() => handleAmountSelect(amount)}
                           data-testid={`button-amount-${amount}`}
                         >
-                          ${amount}
+                          ₹{amount}
                         </Button>
                       ))}
                     </div>
                     <FormControl>
                       <div className="relative">
-                        <span className="absolute left-4 top-3 text-gray-500">$</span>
+                        <span className="absolute left-4 top-3 text-gray-500">₹</span>
                         <Input
                           type="number"
                           placeholder="Custom amount"
@@ -227,8 +230,8 @@ export default function DonationForm() {
                             variant="outline"
                             className={`py-4 px-4 flex items-center justify-center transition-all ${
                               field.value === method.value
-                                ? "border-forest bg-forest/5"
-                                : "border-gray-200 hover:border-forest"
+                                ? "border-orange-500 bg-orange-500/5"
+                                : "border-gray-200 hover:border-orange-500"
                             }`}
                             onClick={() => field.onChange(method.value)}
                             data-testid={`button-payment-${method.value}`}
@@ -286,7 +289,7 @@ export default function DonationForm() {
               <Button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="w-full bg-warm-orange text-white py-4 rounded-lg font-semibold text-lg hover:bg-orange-500 transition-colors flex items-center justify-center"
+                className="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg hover:bg-orange-600 transition-colors flex items-center justify-center"
                 data-testid="button-donate-securely"
               >
                 <Lock className="mr-2 h-5 w-5" />
@@ -296,14 +299,14 @@ export default function DonationForm() {
               {/* Trust Badges */}
               <div className="mt-6 flex items-center justify-center space-x-6 text-sm text-gray-500">
                 <div className="flex items-center">
-                  <Shield className="h-4 w-4 text-forest mr-1" />
+                  <Shield className="h-4 w-4 text-orange-500 mr-1" />
                   SSL Secure
                 </div>
                 <div className="flex items-center">
-                  <span className="w-4 h-4 bg-forest rounded-full mr-1 flex items-center justify-center">
+                  <span className="w-4 h-4 bg-orange-500 rounded-full mr-1 flex items-center justify-center">
                     <span className="text-white text-xs">✓</span>
                   </span>
-                  501(c)(3) Tax Exempt
+                  NGO Registered
                 </div>
               </div>
             </form>

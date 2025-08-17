@@ -1,185 +1,93 @@
 import { Link } from "wouter";
-import { Heart, Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { ArrowRight, Twitter, Facebook, Instagram, Youtube } from "lucide-react";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-dark-slate text-white py-16" data-testid="footer-main">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
-          {/* Organization Info */}
-          <div>
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-10 h-10 bg-warm-orange rounded-full flex items-center justify-center">
-                <Heart className="text-white h-5 w-5" />
+    <footer className="bg-white border-t border-gray-200">
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Left Side - Logo */}
+          <div className="space-y-4">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center">
+                <div className="w-6 h-6 bg-white rounded-sm"></div>
               </div>
-              <span className="text-xl font-bold">Hope Foundation</span>
+              <span className="text-xl font-bold text-gray-900">Nayiumang</span>
             </div>
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              Creating lasting change through community-driven programs that address education, 
-              healthcare, and environmental challenges.
-            </p>
+          </div>
+
+          {/* Center - Navigation Links */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* About Us */}
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-4">About Us</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li><Link href="/about" className="hover:text-orange-500 transition-colors">Our story</Link></li>
+                <li><Link href="/programs" className="hover:text-orange-500 transition-colors">Projects</Link></li>
+                <li><Link href="/about" className="hover:text-orange-500 transition-colors">Whom we help</Link></li>
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-4">Resources</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li><Link href="/gallery" className="hover:text-orange-500 transition-colors">Blogs</Link></li>
+                <li><Link href="/gallery" className="hover:text-orange-500 transition-colors">Videos</Link></li>
+                <li><Link href="/events" className="hover:text-orange-500 transition-colors">In Media</Link></li>
+              </ul>
+            </div>
+
+            {/* Location */}
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-4">Location</h3>
+              <p className="text-gray-600">1/2-8 kormangala, Bangalore, 760089</p>
+            </div>
+          </div>
+
+          {/* Right Side - Social Media & Contact */}
+          <div className="space-y-6">
+            {/* Social Media Icons */}
             <div className="flex space-x-4">
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-warm-orange transition-colors"
-                data-testid="social-facebook"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-warm-orange transition-colors"
-                data-testid="social-twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-warm-orange transition-colors"
-                data-testid="social-instagram"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-warm-orange transition-colors"
-                data-testid="social-linkedin"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
+              <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors">
+                <Twitter className="h-6 w-6" />
+              </Link>
+              <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors">
+                <Facebook className="h-6 w-6" />
+              </Link>
+              <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors">
+                <Instagram className="h-6 w-6" />
+              </Link>
+              <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors">
+                <Youtube className="h-6 w-6" />
+              </Link>
             </div>
-          </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/about">
-                  <span className="text-gray-300 hover:text-warm-orange transition-colors cursor-pointer" data-testid="footer-link-about">
-                    About Us
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/programs">
-                  <span className="text-gray-300 hover:text-warm-orange transition-colors cursor-pointer" data-testid="footer-link-programs">
-                    Our Programs
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/get-involved">
-                  <span className="text-gray-300 hover:text-warm-orange transition-colors cursor-pointer" data-testid="footer-link-get-involved">
-                    Get Involved
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/events">
-                  <span className="text-gray-300 hover:text-warm-orange transition-colors cursor-pointer" data-testid="footer-link-events">
-                    Events
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/gallery">
-                  <span className="text-gray-300 hover:text-warm-orange transition-colors cursor-pointer" data-testid="footer-link-gallery">
-                    Gallery
-                  </span>
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Support */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Support</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/donate">
-                  <span className="text-gray-300 hover:text-warm-orange transition-colors cursor-pointer" data-testid="footer-link-donate">
-                    Donate
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/get-involved">
-                  <span className="text-gray-300 hover:text-warm-orange transition-colors cursor-pointer" data-testid="footer-link-volunteer">
-                    Volunteer
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-warm-orange transition-colors" data-testid="footer-link-partnerships">
-                  Corporate Partnerships
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-warm-orange transition-colors" data-testid="footer-link-grants">
-                  Grant Opportunities
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-warm-orange transition-colors" data-testid="footer-link-reports">
-                  Annual Reports
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Contact Info</h4>
-            <div className="space-y-3">
-              <div className="flex items-start space-x-3">
-                <MapPin className="text-warm-orange mt-1 h-5 w-5 flex-shrink-0" />
-                <div className="text-gray-300">
-                  <p>123 Hope Street</p>
-                  <p>Community City, CC 12345</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="text-warm-orange h-5 w-5 flex-shrink-0" />
-                <a 
-                  href="tel:+15551234567" 
-                  className="text-gray-300 hover:text-warm-orange transition-colors"
-                  data-testid="contact-phone"
+            {/* Contact Us */}
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-4">Contact Us</h3>
+              <div className="flex">
+                <Input 
+                  type="email" 
+                  placeholder="Enter Your Mail" 
+                  className="bg-orange-500 text-white placeholder:text-orange-200 border-orange-500 focus:border-orange-600 focus:ring-orange-600"
+                />
+                <Button 
+                  className="bg-orange-500 text-white px-3 py-2 ml-2 hover:bg-orange-600 transition-colors"
+                  size="sm"
                 >
-                  (555) 123-4567
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="text-warm-orange h-5 w-5 flex-shrink-0" />
-                <a 
-                  href="mailto:info@hopefoundation.org" 
-                  className="text-gray-300 hover:text-warm-orange transition-colors"
-                  data-testid="contact-email"
-                >
-                  info@hopefoundation.org
-                </a>
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-700 pt-8 text-center">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-300">© {currentYear} Hope Foundation. All rights reserved.</p>
-            <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-gray-300 hover:text-warm-orange transition-colors" data-testid="footer-privacy">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-gray-300 hover:text-warm-orange transition-colors" data-testid="footer-terms">
-                Terms of Service
-              </a>
-              <a href="#" className="text-gray-300 hover:text-warm-orange transition-colors" data-testid="footer-transparency">
-                Financial Transparency
-              </a>
-            </div>
-          </div>
+        {/* Copyright */}
+        <div className="border-t border-gray-200 mt-12 pt-8 text-center">
+          <p className="text-gray-600">© 2023 www.nayiumang.com. All rights reserved</p>
         </div>
       </div>
     </footer>

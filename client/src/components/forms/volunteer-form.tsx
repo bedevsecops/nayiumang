@@ -14,6 +14,8 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { insertVolunteerSchema } from "@shared/schema";
+import { Heart, Users, Utensils } from "lucide-react";
+import { useLocation } from "wouter";
 
 const volunteerFormSchema = insertVolunteerSchema.extend({
   interests: z.array(z.string()).min(1, "Please select at least one area of interest")
@@ -22,12 +24,12 @@ const volunteerFormSchema = insertVolunteerSchema.extend({
 type VolunteerFormData = z.infer<typeof volunteerFormSchema>;
 
 const interestOptions = [
-  { id: "education", label: "Education Programs" },
-  { id: "healthcare", label: "Healthcare Initiatives" }, 
-  { id: "environment", label: "Environmental Projects" },
-  { id: "events", label: "Event Organization" },
-  { id: "fundraising", label: "Fundraising" },
-  { id: "fieldwork", label: "Field Work" }
+  { id: "community-kitchen", label: "Community Kitchen Operations" },
+  { id: "child-nutrition", label: "Child Nutrition Programs" }, 
+  { id: "food-preparation", label: "Food Preparation & Cooking" },
+  { id: "distribution", label: "Food Distribution" },
+  { id: "fundraising", label: "Fundraising & Outreach" },
+  { id: "fieldwork", label: "Field Work & Community Visits" }
 ];
 
 const availabilityOptions = [
@@ -41,6 +43,7 @@ export default function VolunteerForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const queryClient = useQueryClient();
+  const [, setLocation] = useLocation();
 
   const form = useForm<VolunteerFormData>({
     resolver: zodResolver(volunteerFormSchema),
@@ -58,12 +61,8 @@ export default function VolunteerForm() {
   const volunteerMutation = useMutation({
     mutationFn: (data: VolunteerFormData) => apiRequest("POST", "/api/volunteers", data),
     onSuccess: () => {
-      toast({
-        title: "Application Submitted!",
-        description: "Thank you for your interest in volunteering. We'll be in touch soon.",
-      });
-      form.reset();
-      queryClient.invalidateQueries({ queryKey: ["/api/volunteers"] });
+      // Redirect to registration success page instead of showing toast
+      setLocation("/volunteer-registration");
     },
     onError: () => {
       toast({
@@ -89,9 +88,12 @@ export default function VolunteerForm() {
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
-      <Card className="bg-white shadow-lg">
+      <Card className="bg-white shadow-lg border border-gray-200">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold text-dark-slate">Volunteer With Us</CardTitle>
+          <CardTitle className="text-2xl font-bold text-gray-900 flex items-center">
+            <Heart className="h-6 w-6 text-orange-500 mr-2" />
+            Volunteer With Nayiumang
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -163,7 +165,7 @@ export default function VolunteerForm() {
                     <FormControl>
                       <Input 
                         type="tel" 
-                        placeholder="(123) 456-7890" 
+                        placeholder="+91 98765 43210" 
                         {...field} 
                         data-testid="input-phone"
                       />
@@ -249,9 +251,10 @@ export default function VolunteerForm() {
                     <FormLabel>Tell us about yourself</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Share your background, skills, or motivation to volunteer..."
+                        placeholder="Share your background, skills, or motivation to volunteer with Nayiumang..."
                         rows={4}
                         {...field}
+                        value={field.value || ""}
                         data-testid="textarea-message"
                       />
                     </FormControl>
@@ -264,7 +267,7 @@ export default function VolunteerForm() {
               <Button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="w-full bg-forest text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+                className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors"
                 data-testid="button-submit-volunteer"
               >
                 {isSubmitting ? "Submitting..." : "Submit Application"}

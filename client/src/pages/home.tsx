@@ -3,53 +3,16 @@ import ImpactStats from "@/components/home/impact-stats";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-import { GraduationCap, Heart, Leaf } from "lucide-react";
-
-const programsData = [
-  {
-    id: "education",
-    title: "Education Initiative",
-    description: "Building schools, training teachers, and providing educational resources to ensure every child has access to quality learning opportunities.",
-    progress: 78,
-    completedProjects: "45 schools built",
-    icon: GraduationCap,
-    gradient: "from-forest/5 to-forest/10",
-    color: "text-forest",
-    bgColor: "bg-forest"
-  },
-  {
-    id: "healthcare",
-    title: "Healthcare Access",
-    description: "Establishing mobile clinics, training community health workers, and improving maternal and child health outcomes.",
-    progress: 92,
-    completedProjects: "25 clinics operational",
-    icon: Heart,
-    gradient: "from-ocean/5 to-ocean/10",
-    color: "text-ocean",
-    bgColor: "bg-ocean"
-  },
-  {
-    id: "environment",
-    title: "Environmental Conservation",
-    description: "Promoting sustainable practices, reforestation projects, and clean water initiatives that protect natural resources.",
-    progress: 65,
-    completedProjects: "50K trees planted",
-    icon: Leaf,
-    gradient: "from-warm-orange/5 to-warm-orange/10",
-    color: "text-warm-orange",
-    bgColor: "bg-warm-orange"
-  }
-];
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="bg-soft-gray">
+    <div className="bg-white">
       <HeroSection />
       <ImpactStats />
       
-      {/* About Introduction */}
-      <section className="py-20 bg-soft-gray">
+      {/* "We Believe that We can Save more Lives with you" Section */}
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center mb-16"
@@ -58,106 +21,201 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-dark-slate mb-4">About Hope Foundation</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Since 2015, we've been dedicated to creating sustainable change through community-driven initiatives that address education, healthcare, and environmental challenges.
-            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              We Believe that We can Save more Lives with you
+              <span className="inline-block w-3 h-3 bg-orange-500 rounded-full ml-2"></span>
+            </h2>
           </motion.div>
 
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Start Donating Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="bg-gradient-to-br from-orange-500/90 to-orange-600/90 text-white overflow-hidden h-full">
+                <div className="relative h-48 bg-black/20">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-6xl mb-2">📱</div>
+                      <p className="text-sm opacity-80">Hand holding smartphone with DONATE button</p>
+                    </div>
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="text-2xl font-bold mb-4">Start Donating</h3>
+                  <p className="text-orange-100 mb-6 leading-relaxed">
+                    Begin donating now to provide essential nutrition for underprivileged children, supporting their health and brighter futures.
+                  </p>
+                  <Button className="w-full bg-white text-orange-600 hover:bg-gray-100 transition-colors">
+                    Donate Now
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Become Volunteer Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Card className="bg-gradient-to-br from-yellow-500/90 to-orange-500/90 text-white overflow-hidden h-full">
+                <div className="relative h-48 bg-black/20">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-6xl mb-2">👥</div>
+                      <p className="text-sm opacity-80">Blurry background of children</p>
+                    </div>
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="text-2xl font-bold mb-4">Become Volunteer</h3>
+                  <p className="text-orange-100 mb-6 leading-relaxed">
+                    Join our incredible staff dedicated to vital nourishment for underprivileged children. Your time and effort can make a big impact.
+                  </p>
+                  <Button className="w-full bg-white text-orange-600 hover:bg-gray-100 transition-colors">
+                    Join Now
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Share with Friends Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <Card className="bg-gradient-to-br from-red-500/90 to-red-600/90 text-white overflow-hidden h-full">
+                <div className="relative h-48 bg-black/20">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-6xl mb-2">👥</div>
+                      <p className="text-sm opacity-80">Blurry background of children</p>
+                    </div>
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="text-2xl font-bold mb-4">Share with Friends</h3>
+                  <p className="text-red-100 mb-6 leading-relaxed">
+                    Help us make a difference in children's lives by sharing our mission with friends and spreading awareness about our cause.
+                  </p>
+                  <Button className="w-full bg-white text-red-600 hover:bg-gray-100 transition-colors">
+                    Share Now
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Us Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
           <motion.div 
-            className="grid md:grid-cols-2 gap-12 items-center mb-16"
+            className="grid md:grid-cols-2 gap-12 items-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
             <div>
-              <img 
-                src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-                alt="Hope Foundation founder speaking at community event" 
-                className="rounded-xl shadow-lg w-full h-auto"
-              />
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold text-dark-slate mb-6">Our Story</h3>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">About Us</h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Hope Foundation was born from a simple belief: that every person deserves access to quality education, healthcare, and a sustainable environment. What started as a small community initiative has grown into a movement that spans 85 communities across the region.
+                PJR is a dedicated NGO committed to eradicating hunger among underprivileged children, providing nutritious meals, and fostering hope. We believe in transparency and accountability in all our initiatives.
               </p>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Our approach is different. We don't just provide aid – we work alongside communities to build lasting solutions that they can sustain long after we've moved on.
+                Our mission is to ensure that no child goes to bed hungry and that every child has access to the nutrition they need to grow, learn, and thrive.
               </p>
               <Link href="/about">
-                <motion.button 
-                  className="bg-forest text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  data-testid="button-learn-more"
+                <Button 
+                  variant="outline"
+                  className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white transition-colors"
                 >
-                  Learn More About Us
-                </motion.button>
+                  Learn More
+                  <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Button>
               </Link>
+            </div>
+            <div className="relative">
+              <div className="w-full h-96 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg relative overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center text-gray-500">
+                    <div className="text-4xl mb-2">👶👧👦👩</div>
+                    <p className="text-sm">Children with adult woman in background</p>
+                  </div>
+                </div>
+                {/* Orange brushstroke element */}
+                <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-8 h-32 bg-orange-400 transform rotate-12"></div>
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Programs Preview */}
-      <section className="py-20 bg-white">
+      {/* Our Projects / The Hunger Project Section */}
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div 
-            className="text-center mb-16"
+            className="grid md:grid-cols-2 gap-12 items-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-dark-slate mb-4">Our Key Programs</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We focus on three core areas that create the foundation for thriving communities: education, healthcare, and environmental sustainability.
-            </p>
+            <div className="relative">
+              <div className="w-full h-96 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg relative overflow-hidden">
+                <div className="absolute inset-0 bg-orange-500/30"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center text-gray-500">
+                    <div className="text-4xl mb-2">🍽️👶👧👦</div>
+                    <p className="text-sm">Children eating meals from metal plates</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-orange-500 text-white p-8 rounded-lg">
+              <div className="flex items-center mb-4">
+                <div className="w-8 h-8 bg-white rounded-full mr-3"></div>
+                <h2 className="text-3xl font-bold">Our Projects</h2>
+              </div>
+              <h3 className="text-2xl font-bold mb-4">The Hunger Project</h3>
+              <p className="text-orange-100 mb-6 leading-relaxed">
+                PJR's Hunger Project is dedicated to feeding underprivileged children through community kitchen initiatives, providing nutritious meals, and creating sustainable solutions. We have successfully implemented past initiatives and continue to raise funds for ongoing missions.
+              </p>
+              <Button 
+                variant="outline"
+                className="border-2 border-white text-white hover:bg-white hover:text-orange-500 transition-colors"
+              >
+                Learn More
+                <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Button>
+              
+              {/* Pagination dots */}
+              <div className="flex space-x-2 mt-6">
+                <div className="w-2 h-2 bg-white rounded-full"></div>
+                <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+              </div>
+            </div>
           </motion.div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            {programsData.map((program, index) => {
-              const IconComponent = program.icon;
-              return (
-                <motion.div
-                  key={program.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <Card className={`bg-gradient-to-br ${program.gradient} hover:shadow-lg transition-all duration-300 h-full`}>
-                    <CardContent className="p-8">
-                      <img 
-                        src={
-                          program.id === "education" 
-                            ? "https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400"
-                            : program.id === "healthcare"
-                            ? "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400"
-                            : "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400"
-                        }
-                        alt={`${program.title} program activities`}
-                        className="w-full h-48 object-cover rounded-lg mb-6"
-                      />
-                      <div className={`w-16 h-16 ${program.bgColor} rounded-full flex items-center justify-center mb-4`}>
-                        <IconComponent className="text-white text-2xl h-8 w-8" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-dark-slate mb-4">{program.title}</h3>
-                      <p className="text-gray-600 mb-6">{program.description}</p>
-                      <div className="flex justify-between text-sm text-gray-500 mb-4">
-                        <span>Progress: {program.progress}%</span>
-                        <span>{program.completedProjects}</span>
-                      </div>
-                      <Progress value={program.progress} className="w-full" />
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </div>
-
+      {/* Media Mentions Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
           <motion.div 
             className="text-center"
             initial={{ opacity: 0, y: 20 }}
@@ -165,56 +223,67 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <Link href="/programs">
-              <motion.button 
-                className="bg-ocean text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                data-testid="button-view-all-programs"
-              >
-                View All Programs
-              </motion.button>
-            </Link>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Media Mentions</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-gray-700 mb-2">The Times of India</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-gray-700 mb-2">दैनिक भास्कर</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-gray-700 mb-2">CNBC</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-gray-700 mb-2">ZEENEWS</div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-forest to-ocean">
-        <div className="container mx-auto px-4 text-center">
+      {/* Join our cause! Everyone can help. Section */}
+      <section className="py-20 bg-gray-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/60"></div>
+        <div className="relative z-10 container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Join Our Mission</h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Together, we can create lasting change in communities around the world. Your support makes a real difference.
-            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Join our cause!</h2>
+            <p className="text-2xl text-white/90 mb-8">Everyone can help.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link href="/donate">
-                <motion.button 
-                  className="bg-warm-orange text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-orange-500 transition-all duration-300 shadow-lg"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  data-testid="button-donate-cta"
+                <Button 
+                  className="bg-orange-500 text-white px-8 py-4 text-lg font-semibold rounded-lg hover:bg-orange-600 transition-colors shadow-lg"
+                  size="lg"
                 >
-                  Donate Now
-                </motion.button>
+                  Donate now
+                </Button>
               </Link>
               <Link href="/get-involved">
-                <motion.button 
-                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-dark-slate transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  data-testid="button-volunteer-cta"
+                <Button 
+                  variant="outline"
+                  className="border-2 border-orange-500 bg-yellow-500 text-orange-600 px-8 py-4 text-lg font-semibold rounded-lg hover:bg-orange-500 hover:text-white transition-colors"
+                  size="lg"
                 >
-                  Volunteer Today
-                </motion.button>
+                  Become a Volunteer
+                </Button>
               </Link>
             </div>
           </motion.div>
+        </div>
+        
+        {/* Background image placeholder */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 opacity-20">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center text-gray-500">
+              <div className="text-6xl mb-2">👶👧👦</div>
+              <p className="text-sm">Children looking at camera and smiling</p>
+            </div>
+          </div>
         </div>
       </section>
     </div>
