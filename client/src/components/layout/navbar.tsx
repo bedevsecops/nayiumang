@@ -10,7 +10,8 @@ const navItems = [
   { href: "/about", label: "About" },
   { href: "/programs", label: "Projects" },
   { href: "/get-involved", label: "Contact Us" },
-  { href: "/volunteer-registration", label: "Registration" }
+  { href: "/volunteer-registration", label: "Registration" },
+  { href: "/admin", label: "Admin" }
 ];
 
 export default function Navbar() {
