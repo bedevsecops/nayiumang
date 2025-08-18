@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Lock, Eye, EyeOff } from "lucide-react";
 import { useLocation, Link } from "wouter";
+import { useToast } from "@/hooks/use-toast";
 
 const loginSchema = z.object({
   username: z.string().min(1, "Username is required"),
@@ -22,6 +23,7 @@ export default function AdminLogin() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [, setLocation] = useLocation();
+  const { toast } = useToast();
 
   const form = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
@@ -36,16 +38,29 @@ export default function AdminLogin() {
     setError("");
 
     try {
-      // Simple admin authentication (in production, this should be more secure)
-      if (data.username === "admin" && data.password === "nayiumang2024") {
-        // Store admin session
-        localStorage.setItem("adminAuthenticated", "true");
-        setLocation("/admin");
-      } else {
-        setError("Invalid username or password");
+      const res = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        const message = body?.message || "Invalid credentials";
+        setError(message);
+        toast({ title: "Login failed", description: message, variant: "destructive" });
+        return;
       }
-    } catch (error) {
-      setError("Login failed. Please try again.");
+
+      const body = await res.json();
+      // Basic session: store a flag and minimal user info
+      localStorage.setItem("adminAuthenticated", "true");
+      localStorage.setItem("adminUser", JSON.stringify(body.user));
+      toast({ title: "Welcome", description: `Logged in as ${body.user?.username}` });
+      setLocation("/admin");
+    } catch (e) {
+      setError("Unable to reach server");
+      toast({ title: "Network error", description: "Unable to reach server", variant: "destructive" });
     } finally {
       setIsSubmitting(false);
     }
@@ -140,14 +155,9 @@ export default function AdminLogin() {
               </Form>
 
               <div className="mt-6 text-center">
-                <p className="text-sm text-gray-500 mb-4">
-                  Demo credentials: admin / nayiumang2024
+                <p className="text-sm text-gray-600 text-center">
+                  Enter your admin credentials to access the dashboard
                 </p>
-                <Link href="/admin-register">
-                  <Button variant="outline" className="w-full">
-                    Create New Admin Account
-                  </Button>
-                </Link>
               </div>
             </CardContent>
           </Card>

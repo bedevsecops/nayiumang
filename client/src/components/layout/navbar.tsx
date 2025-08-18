@@ -9,9 +9,9 @@ const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/programs", label: "Projects" },
-  { href: "/get-involved", label: "Contact Us" },
+  { href: "/donate", label: "Donate" },
+  { href: "/get-involved", label: "Get Involved" },
   { href: "/volunteer-registration", label: "Registration" },
-  { href: "/admin", label: "Admin" }
 ];
 
 export default function Navbar() {

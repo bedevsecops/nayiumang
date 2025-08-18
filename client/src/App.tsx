@@ -15,7 +15,6 @@ import Gallery from "@/pages/gallery";
 import VolunteerRegistration from "@/pages/volunteer-registration";
 import AdminPanel from "@/pages/admin";
 import AdminLogin from "@/pages/admin-login";
-import AdminRegister from "@/pages/admin-register";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -33,7 +32,6 @@ function Router() {
           <Route path="/gallery" component={Gallery} />
           <Route path="/volunteer-registration" component={VolunteerRegistration} />
           <Route path="/admin-login" component={AdminLogin} />
-          <Route path="/admin-register" component={AdminRegister} />
           <Route path="/admin" component={AdminPanel} />
           <Route component={NotFound} />
         </Switch>
