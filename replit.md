@@ -4,7 +4,7 @@
 
 This is a full-stack web application for नवी उमंग (Nayi Umang), a Marathi-language non-profit organization serving Maharashtra-based communities. The NGO focuses on non-financial support including guidance, resources, emotional support, and community help for underprivileged people. The platform serves as a registration system for volunteers and provides comprehensive information about the organization's mission and impact.
 
-The application features a modern React frontend with complete Marathi localization, Node.js/Express backend, utilizing PostgreSQL for data persistence and Twilio for SMS notifications in Marathi. It's built with warm, compassionate design and proper Marathi font support for enhanced user experience.
+The application features a modern React frontend with complete Marathi localization, authentic background imagery, comprehensive service showcases, and enhanced user experience. Built with Node.js/Express backend, PostgreSQL for data persistence and Twilio for SMS notifications in Marathi. Designed with warm, compassionate interface using proper Marathi typography (Noto Sans Devanagari) and authentic Maharashtra-focused content.
 
 ## User Preferences
 
@@ -91,3 +91,6 @@ The application features a modern React frontend with complete Marathi localizat
 - **Google Fonts**: Noto Sans Devanagari for proper Marathi text rendering, Inter as fallback
 - **Custom Font Loading**: Optimized font loading with preconnect for performance
 - **Localization Support**: Complete Marathi content with proper Devanagari script support
+- **Background Imagery**: Authentic community service background images in hero section
+- **Service Showcase**: Dedicated section highlighting NGO's non-financial support services
+- **Enhanced UX**: Comprehensive volunteer information and detailed service descriptions

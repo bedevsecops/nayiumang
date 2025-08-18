@@ -77,9 +77,19 @@ export default function Registration() {
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">आमच्या समुदायात सामील व्हा</h1>
-          <p className="text-lg text-gray-600">
-            स्वयंसेवक म्हणून नोंदणी करा आणि समुदायात सकारात्मक बदल घडवण्यात मदत करा.
+          <p className="text-lg text-gray-600 mb-6">
+            आमच्या स्वयंसेवक संघात सामील होऊन महाराष्ट्रातील गरीब आणि वंचित समुदायाची सेवा करा.
           </p>
+          <div className="bg-blue-50 p-4 rounded-lg mb-8 text-left max-w-2xl mx-auto">
+            <h3 className="font-semibold text-gray-800 mb-2">आमच्यासोबत काम करून तुम्ही:</h3>
+            <ul className="text-sm text-gray-700 space-y-1">
+              <li>• गरजू लोकांना योग्य मार्गदर्शन देऊ शकाल</li>
+              <li>• शिक्षण आणि कौशल्य विकासात मदत करू शकाल</li>
+              <li>• भावनिक आधार आणि सल्ला देऊ शकाल</li>
+              <li>• संसाधन गोळा करून वितरण करू शकाल</li>
+              <li>• समुदायात सकारात्मक बदल घडवू शकाल</li>
+            </ul>
+          </div>
         </div>
         
         <Card className="shadow-lg">

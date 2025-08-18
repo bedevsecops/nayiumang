@@ -9,25 +9,25 @@ export default function Home() {
     {
       name: "सुनिता देशमुख",
       role: "मार्गदर्शन समन्वयक",
-      description: "शिक्षण आणि व्यक्तिमत्व विकासाबाबत उत्कट आस्था असलेल्या सुनिता गेली ३ वर्षे समुदायातील लोकांना योग्य दिशा दाखवत आहेत.",
-      imageUrl: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=300"
+      description: "गरीब कुटुंबांना योग्य दिशा दाखवणे आणि त्यांच्या समस्यांचे उपाय शोधण्यात मदत करणे. सुनिता गेली ५ वर्षे समुदायासेवेत सक्रिय आहे.",
+      imageUrl: "https://images.unsplash.com/photo-1594824801314-020d6fa4ddc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
     },
     {
-      name: "राहुल कुलकर्णी",
-      role: "समुदाय संपर्क",
-      description: "गरजू लोकांसाठी आवश्यक संसाधने जुळवून देण्यात तज्ञ. राहुल नेहमी समुदायातील समस्या सोडवण्यासाठी पुढे राहतो.",
-      imageUrl: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=300"
+      name: "राहुल कुलकर्णी", 
+      role: "संसाधन समन्वयक",
+      description: "गरजू कुटुंबांसाठी शिक्षण साहित्य, कपडे आणि आवश्यक वस्तू गोळा करून वितरण करणे. समुदायातील नेटवर्क तयार करण्यात तज्ञ.",
+      imageUrl: "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
     },
     {
       name: "डॉ. प्रिया शर्मा",
-      role: "आरोग्य सल्लागार",
-      description: "वैद्यकीय व्यावसायिक म्हणून डॉ. प्रिया गरीब समुदायाला आरोग्य सेवा आणि योग्य सल्ला देण्याचे काम करतात.",
+      role: "आरोग्य सल्लागार", 
+      description: "मोफत आरोग्य तपासणी आणि प्राथमिक वैद्यकीय सेवा पुरवणे. आरोग्याविषयी जागरुकता वाढवणे आणि योग्य डॉक्टरांकडे पाठवणे.",
       imageUrl: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
     },
     {
       name: "अमित जाधव",
-      role: "कौशल्य विकास",
-      description: "तरुणांसाठी तंत्रज्ञान शिक्षण आणि रोजगार प्रशिक्षणाचे काम करणारे अमित नवीन संधी निर्माण करण्यात तज्ञ आहेत.",
+      role: "कौशल्य प्रशिक्षक",
+      description: "तरुणांना रोजगारासाठी आवश्यक कौशल्य शिकवणे. मोफत कॉम्प्यूटर, इंग्रजी आणि व्यावसायिक प्रशिक्षण देणे.",
       imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=300"
     }
   ];
@@ -42,14 +42,25 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-ngo-blue to-blue-600 text-white py-16 px-4">
+      <section 
+        className="relative text-white py-20 px-4"
+        style={{
+          backgroundImage: `linear-gradient(rgba(79, 70, 229, 0.75), rgba(37, 99, 235, 0.75)), url('https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed"
+        }}
+      >
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
             <div className="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
               <Heart className="text-3xl" size={48} />
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">नवी उमंग</h1>
-            <p className="text-xl md:text-2xl text-blue-100">एकत्र येऊन समुदायाची सेवा करूया</p>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">नवी उमंग</h1>
+            <p className="text-xl md:text-2xl text-blue-100 mb-4">आशा, मार्गदर्शन आणि सहकार्य</p>
+            <p className="text-lg md:text-xl text-blue-200 max-w-3xl mx-auto">
+              महाराष्ट्रातील गरीब आणि वंचित समुदायाला आर्थिक मदत न करता जीवनातील कठीण परिस्थितीत मार्गदर्शन, संसाधने आणि भावनिक आधार देणारी संस्था
+            </p>
           </div>
         </div>
       </section>
@@ -90,8 +101,62 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-gray-900">आमचे कार्य</h3>
                 </div>
                 <p className="text-gray-700 leading-relaxed">
-                  गरीब आणि वंचित लोकांना जीवनातील कठीण परिस्थितीत मार्गदर्शन, भावनिक आधार आणि आवश्यक संसाधने पुरवणे. आम्ही समुदायिक सहकार्याने चिरकाल टिकणारा सकारात्मक बदल घडवतो.
+                  महाराष्ट्रातील गरीब आणि वंचित समुदायाला आर्थिक सहायता न करता त्यांच्या जीवनातील आव्हानांना तोंड देण्यासाठी मार्गदर्शन, भावनिक आधार, शिक्षण संधी आणि आवश्यक संसाधने पुरवणे. समुदायिक सहकार्याने स्वावलंबन निर्माण करणे.
                 </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">आमच्या सेवा</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              आम्ही पैसे देत नाही, पण आपल्या जीवनात सकारात्मक बदल घडवण्यासाठी योग्य मार्गदर्शन, कौशल्य आणि संसाधने देतो.
+            </p>
+          </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow border-none">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 bg-ngo-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                  <GraduationCap className="text-white" size={32} />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">शैक्षणिक मार्गदर्शन</h3>
+                <p className="text-gray-600 text-sm">मोफत शिक्षण, करिअर काउंसलिंग आणि शिष्यवृत्तीची माहिती</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow border-none">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 bg-ngo-green rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Heart className="text-white" size={32} />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">भावनिक आधार</h3>
+                <p className="text-gray-600 text-sm">कठीण परिस्थितीत सल्ला आणि मानसिक स्वास्थ्याची काळजी</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow border-none">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 bg-ngo-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="text-white" size={32} />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">संसाधन जुळवणूक</h3>
+                <p className="text-gray-600 text-sm">शिक्षण साहित्य, कपडे आणि आवश्यक वस्तूंचे वितरण</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow border-none">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Target className="text-white" size={32} />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">कौशल्य प्रशिक्षण</h3>
+                <p className="text-gray-600 text-sm">रोजगारासाठी आवश्यक कौशल्यांचे मोफत प्रशिक्षण</p>
               </CardContent>
             </Card>
           </div>
