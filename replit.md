@@ -1,14 +1,18 @@
-# Nayi Umang NGO Registration Platform
+# नवी उमंग NGO Registration Platform
 
 ## Overview
 
-This is a full-stack web application for Nayi Umang, a non-profit organization focused on community development through education, healthcare, housing, and environmental programs. The platform serves as a registration system for volunteers and provides information about the organization's mission and impact.
+This is a full-stack web application for नवी उमंग (Nayi Umang), a Marathi-language non-profit organization serving Maharashtra-based communities. The NGO focuses on non-financial support including guidance, resources, emotional support, and community help for underprivileged people. The platform serves as a registration system for volunteers and provides comprehensive information about the organization's mission and impact.
 
-The application features a modern React frontend with a Node.js/Express backend, utilizing PostgreSQL for data persistence and Twilio for SMS notifications. It's built with a focus on user experience, accessibility, and responsive design suitable for NGO operations.
+The application features a modern React frontend with complete Marathi localization, Node.js/Express backend, utilizing PostgreSQL for data persistence and Twilio for SMS notifications in Marathi. It's built with warm, compassionate design and proper Marathi font support for enhanced user experience.
 
 ## User Preferences
 
-Preferred communication style: Simple, everyday language.
+- Preferred communication style: Simple, everyday language
+- Website must be fully in Marathi language with warm, compassionate design
+- Target audience: Underprivileged people in Maharashtra
+- Focus: Non-financial support (guidance, resources, emotional support, community help)
+- Content localization: All user-facing content in Marathi while maintaining English URLs and technical components
 
 ## System Architecture
 
@@ -84,5 +88,6 @@ Preferred communication style: Simple, everyday language.
 - **Drizzle-Zod**: Automatic Zod schema generation from Drizzle database schemas
 
 ### Fonts & Assets
-- **Google Fonts**: Inter font family for modern, readable typography
+- **Google Fonts**: Noto Sans Devanagari for proper Marathi text rendering, Inter as fallback
 - **Custom Font Loading**: Optimized font loading with preconnect for performance
+- **Localization Support**: Complete Marathi content with proper Devanagari script support

@@ -27,9 +27,9 @@ export const insertRegistrationSchema = createInsertSchema(registrations).omit({
   id: true,
   createdAt: true,
 }).extend({
-  fullName: z.string().min(2, "Full name must be at least 2 characters"),
-  mobile: z.string().regex(/^[0-9]{10}$/, "Mobile number must be exactly 10 digits"),
-  email: z.string().email("Please enter a valid email address"),
+  fullName: z.string().min(2, "पूर्ण नाव किमान २ अक्षरांचे असावे"),
+  mobile: z.string().regex(/^[0-9]{10}$/, "मोबाइल नंबर अचूक १० अंकांचा असावा"),
+  email: z.string().email("कृपया वैध ईमेल पत्ता टाका"),
   interests: z.array(z.string()).optional().default([]),
 });
 

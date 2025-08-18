@@ -23,7 +23,7 @@ export default function Navigation() {
             <div className="w-10 h-10 bg-ngo-blue rounded-full flex items-center justify-center">
               <Heart className="text-white text-lg" size={20} />
             </div>
-            <span className="text-xl font-bold text-gray-900">Nayi Umang</span>
+            <span className="text-xl font-bold text-gray-900">नवी उमंग</span>
           </Link>
           
           <div className="hidden md:block">
@@ -37,7 +37,7 @@ export default function Navigation() {
                       : "text-gray-600 hover:text-ngo-blue"
                   }`}
                 >
-                  Home
+                  मुख्यपृष्ठ
                 </Button>
               </Link>
               <Link href="/about">
@@ -49,7 +49,7 @@ export default function Navigation() {
                       : "text-gray-600 hover:text-ngo-blue"
                   }`}
                 >
-                  About Us
+                  आमच्याबद्दल
                 </Button>
               </Link>
               <Link href="/register">
@@ -61,7 +61,7 @@ export default function Navigation() {
                       : "text-gray-600 hover:text-ngo-blue"
                   }`}
                 >
-                  Register
+                  नोंदणी
                 </Button>
               </Link>
             </div>
@@ -94,7 +94,7 @@ export default function Navigation() {
                     : "text-gray-600 hover:text-ngo-blue"
                 }`}
               >
-                Home
+                मुख्यपृष्ठ
               </Button>
             </Link>
             <Link href="/about" onClick={() => setIsMobileMenuOpen(false)}>
@@ -106,7 +106,7 @@ export default function Navigation() {
                     : "text-gray-600 hover:text-ngo-blue"
                 }`}
               >
-                About Us
+                आमच्याबद्दल
               </Button>
             </Link>
             <Link href="/register" onClick={() => setIsMobileMenuOpen(false)}>
@@ -118,7 +118,7 @@ export default function Navigation() {
                     : "text-gray-600 hover:text-ngo-blue"
                 }`}
               >
-                Register
+                नोंदणी
               </Button>
             </Link>
           </div>

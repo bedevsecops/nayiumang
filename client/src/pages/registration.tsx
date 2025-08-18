@@ -43,8 +43,8 @@ export default function Registration() {
       setIsSuccess(true);
       form.reset();
       toast({
-        title: "Registration Successful!",
-        description: "Thank you for joining Nayi Umang. You'll receive a confirmation SMS shortly.",
+        title: "नोंदणी यशस्वी झाली!",
+        description: "नवी उमंग मध्ये सामील झाल्याबद्दल धन्यवाद. तुम्हाला लवकरच पुष्टीकरण SMS मिळेल.",
       });
       // Scroll to success message
       setTimeout(() => {
@@ -54,8 +54,8 @@ export default function Registration() {
     onError: (error: any) => {
       console.error("Registration error:", error);
       toast({
-        title: "Registration Failed",
-        description: "Please check your information and try again.",
+        title: "नोंदणी अयशस्वी झाली",
+        description: "कृपया तुमची माहिती तपासून पुन्हा प्रयत्न करा.",
         variant: "destructive",
       });
     },
@@ -66,19 +66,19 @@ export default function Registration() {
   };
 
   const interestOptions = [
-    { id: "education", label: "Education" },
-    { id: "healthcare", label: "Healthcare" },
-    { id: "housing", label: "Housing" },
-    { id: "environment", label: "Environment" },
+    { id: "education", label: "शिक्षण" },
+    { id: "healthcare", label: "आरोग्य" },
+    { id: "housing", label: "निवारा" },
+    { id: "environment", label: "पर्यावरण" },
   ];
 
   return (
     <section className="py-16 px-4 bg-gray-50 min-h-screen">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Join Our Community</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">आमच्या समुदायात सामील व्हा</h1>
           <p className="text-lg text-gray-600">
-            Register to become a volunteer and help us create positive change in communities.
+            स्वयंसेवक म्हणून नोंदणी करा आणि समुदायात सकारात्मक बदल घडवण्यात मदत करा.
           </p>
         </div>
         
@@ -93,11 +93,11 @@ export default function Registration() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-sm font-medium text-gray-700">
-                        Full Name <span className="text-red-500">*</span>
+                        पूर्ण नाव <span className="text-red-500">*</span>
                       </FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="Enter your full name"
+                          placeholder="तुमचे पूर्ण नाव लिहा"
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ngo-blue focus:border-ngo-blue"
                           {...field}
                         />
@@ -114,12 +114,12 @@ export default function Registration() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-sm font-medium text-gray-700">
-                        Mobile Number <span className="text-red-500">*</span>
+                        मोबाइल नंबर <span className="text-red-500">*</span>
                       </FormLabel>
                       <FormControl>
                         <Input
                           type="tel"
-                          placeholder="Enter 10-digit mobile number"
+                          placeholder="१०-अंकी मोबाइल नंबर लिहा"
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ngo-blue focus:border-ngo-blue"
                           {...field}
                         />
@@ -136,12 +136,12 @@ export default function Registration() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-sm font-medium text-gray-700">
-                        Email Address <span className="text-red-500">*</span>
+                        ईमेल पत्ता <span className="text-red-500">*</span>
                       </FormLabel>
                       <FormControl>
                         <Input
                           type="email"
-                          placeholder="Enter your email address"
+                          placeholder="तुमचा ईमेल पत्ता लिहा"
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ngo-blue focus:border-ngo-blue"
                           {...field}
                         />
@@ -158,7 +158,7 @@ export default function Registration() {
                   render={() => (
                     <FormItem>
                       <FormLabel className="text-sm font-medium text-gray-700">
-                        Areas of Interest <span className="text-gray-500">(Optional)</span>
+                        आवडीची क्षेत्रे <span className="text-gray-500">(ऐच्छिक)</span>
                       </FormLabel>
                       <div className="grid grid-cols-2 gap-3">
                         {interestOptions.map((option) => (
@@ -210,17 +210,17 @@ export default function Registration() {
                     {registrationMutation.isPending ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Registering...
+                        नोंदणी करत आहे...
                       </>
                     ) : (
-                      "Register Now"
+                      "आता नोंदणी करा"
                     )}
                   </Button>
                 </div>
                 
                 {/* Terms */}
                 <div className="text-center text-sm text-gray-600">
-                  By registering, you agree to receive SMS notifications and updates from Nayi Umang.
+                  नोंदणी करून तुम्ही नवी उमंग कडून एसएमएस सूचना आणि अपडेट प्राप्त करण्यास सहमती देत आहात.
                 </div>
               </form>
             </Form>
@@ -236,9 +236,9 @@ export default function Registration() {
                   <Check className="text-white" size={20} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-green-800">Registration Successful!</h3>
+                  <h3 className="text-lg font-semibold text-green-800">नोंदणी यशस्वी झाली!</h3>
                   <p className="text-green-700">
-                    Thank you for joining Nayi Umang. You'll receive a confirmation SMS shortly.
+                    नवी उमंग मध्ये सामील झाल्याबद्दल धन्यवाद. तुम्हाला लवकरच पुष्टीकरण SMS मिळेल.
                   </p>
                 </div>
               </div>
