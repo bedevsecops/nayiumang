@@ -44,7 +44,7 @@ export default function Registration() {
       form.reset();
       toast({
         title: "Registration Successful!",
-        description: "Thank you for joining Hope Foundation. You'll receive a confirmation SMS shortly.",
+        description: "Thank you for joining Nayi Umang. You'll receive a confirmation SMS shortly.",
       });
       // Scroll to success message
       setTimeout(() => {
@@ -220,7 +220,7 @@ export default function Registration() {
                 
                 {/* Terms */}
                 <div className="text-center text-sm text-gray-600">
-                  By registering, you agree to receive SMS notifications and updates from Hope Foundation.
+                  By registering, you agree to receive SMS notifications and updates from Nayi Umang.
                 </div>
               </form>
             </Form>
@@ -238,7 +238,7 @@ export default function Registration() {
                 <div>
                   <h3 className="text-lg font-semibold text-green-800">Registration Successful!</h3>
                   <p className="text-green-700">
-                    Thank you for joining Hope Foundation. You'll receive a confirmation SMS shortly.
+                    Thank you for joining Nayi Umang. You'll receive a confirmation SMS shortly.
                   </p>
                 </div>
               </div>

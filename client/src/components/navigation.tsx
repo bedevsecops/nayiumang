@@ -23,7 +23,7 @@ export default function Navigation() {
             <div className="w-10 h-10 bg-ngo-blue rounded-full flex items-center justify-center">
               <Heart className="text-white text-lg" size={20} />
             </div>
-            <span className="text-xl font-bold text-gray-900">Hope Foundation</span>
+            <span className="text-xl font-bold text-gray-900">Nayi Umang</span>
           </Link>
           
           <div className="hidden md:block">

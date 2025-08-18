@@ -48,7 +48,7 @@ export default function Home() {
             <div className="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
               <Heart className="text-3xl" size={48} />
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">Hope Foundation</h1>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">Nayi Umang</h1>
             <p className="text-xl md:text-2xl text-blue-100">Building Better Communities Together</p>
           </div>
         </div>

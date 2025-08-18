@@ -1,8 +1,8 @@
-# Hope Foundation NGO Registration Platform
+# Nayi Umang NGO Registration Platform
 
 ## Overview
 
-This is a full-stack web application for Hope Foundation, a non-profit organization focused on community development through education, healthcare, housing, and environmental programs. The platform serves as a registration system for volunteers and provides information about the organization's mission and impact.
+This is a full-stack web application for Nayi Umang, a non-profit organization focused on community development through education, healthcare, housing, and environmental programs. The platform serves as a registration system for volunteers and provides information about the organization's mission and impact.
 
 The application features a modern React frontend with a Node.js/Express backend, utilizing PostgreSQL for data persistence and Twilio for SMS notifications. It's built with a focus on user experience, accessibility, and responsive design suitable for NGO operations.
 

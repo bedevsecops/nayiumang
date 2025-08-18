@@ -15,7 +15,7 @@ export async function sendConfirmationSMS(mobile: string, fullName: string): Pro
     throw new Error("Twilio client not initialized. Check your environment variables.");
   }
 
-  const message = `Hello ${fullName}! You have successfully registered with Hope Foundation. We'll be in touch soon with volunteer opportunities. Thank you for joining our mission!`;
+  const message = `Hello ${fullName}! You have successfully registered with Nayi Umang. We'll be in touch soon with volunteer opportunities. Thank you for joining our mission!`;
 
   try {
     await client.messages.create({

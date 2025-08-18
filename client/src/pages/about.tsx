@@ -35,9 +35,9 @@ export default function About() {
     <section className="py-16 px-4 bg-white">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Hope Foundation</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Nayi Umang</h1>
           <p className="text-xl text-gray-600 leading-relaxed">
-            Established in 2015, Hope Foundation is a non-profit organization committed to creating sustainable positive change in underserved communities worldwide.
+            Established in 2015, Nayi Umang is a non-profit organization committed to creating sustainable positive change in underserved communities worldwide.
           </p>
         </div>
         
@@ -52,7 +52,7 @@ export default function About() {
             <CardContent className="p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Story</h2>
               <p className="text-gray-700 leading-relaxed mb-6">
-                Hope Foundation was born from a simple belief: that every individual deserves access to basic necessities, quality education, and opportunities for growth. What started as a small group of passionate volunteers has grown into a comprehensive organization serving thousands of families across multiple communities.
+                Nayi Umang was born from a simple belief: that every individual deserves access to basic necessities, quality education, and opportunities for growth. What started as a small group of passionate volunteers has grown into a comprehensive organization serving thousands of families across multiple communities.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 Our work spans education, healthcare, housing, and economic development. We believe in empowering communities to become self-sufficient while providing immediate support during times of crisis.

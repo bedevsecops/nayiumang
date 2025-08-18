@@ -14,10 +14,10 @@ export default function Footer() {
               <div className="w-10 h-10 bg-ngo-blue rounded-full flex items-center justify-center">
                 <Heart className="text-white" size={20} />
               </div>
-              <span className="text-xl font-bold">Hope Foundation</span>
+              <span className="text-xl font-bold">Nayi Umang</span>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Building better communities through education, healthcare, and sustainable development programs. Together, we create lasting positive impact.
+              Empowering communities with new hope and opportunities through education, healthcare, and sustainable development. Creating positive change together.
             </p>
             <div className="flex space-x-4">
               <Button
@@ -105,7 +105,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center">
                 <Mail className="w-5 h-5 mr-3 text-ngo-blue" />
-                <span className="text-gray-400">info@hopefoundation.org</span>
+                <span className="text-gray-400">info@nayiumang.org</span>
               </div>
             </div>
           </div>
@@ -113,7 +113,7 @@ export default function Footer() {
         
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © 2024 Hope Foundation. All rights reserved. | 
+            © 2024 Nayi Umang. All rights reserved. | 
             <Button variant="ghost" className="text-gray-400 hover:text-white p-1 h-auto mx-1">
               Privacy Policy
             </Button> | 
