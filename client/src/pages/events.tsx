@@ -260,7 +260,7 @@ export default function Events() {
           >
             <h3 className="text-2xl font-bold text-dark-slate mb-4">Campaign Success Stories</h3>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Our community-driven campaigns have successfully funded critical projects that create lasting change. 
+              Our community-driven campaigns have successfully funded critical events that create lasting change. 
               See the impact of collective action.
             </p>
             <div className="grid md:grid-cols-3 gap-8">

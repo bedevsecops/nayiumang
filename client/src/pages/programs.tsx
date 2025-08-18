@@ -98,7 +98,7 @@ export default function Programs() {
           >
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-orange-500 mb-2">110</div>
-              <p className="text-gray-600 font-medium">Projects Completed</p>
+              <p className="text-gray-600 font-medium">Events Completed</p>
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">50</div>
@@ -228,13 +228,13 @@ export default function Programs() {
                 icon: Target,
                 title: "Measurable Outcomes",
                 description: "Regular monitoring and evaluation demonstrate clear improvements in child nutrition and health indicators.",
-                stats: "95% of projects meet success targets"
+                stats: "95% of events meet success targets"
               },
               {
                 icon: TrendingUp,
                 title: "Long-term Sustainability",
                 description: "Programs are designed with exit strategies that ensure continued success after direct support ends.",
-                stats: "87% of completed projects remain active"
+                stats: "87% of completed events remain active"
               }
             ].map((impact, index) => {
               const IconComponent = impact.icon;

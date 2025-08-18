@@ -161,7 +161,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Our Projects / The Hunger Project Section */}
+      {/* Our Events / The Hunger Event Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div 
@@ -185,11 +185,11 @@ export default function Home() {
             <div className="bg-orange-500 text-white p-8 rounded-lg">
               <div className="flex items-center mb-4">
                 <div className="w-8 h-8 bg-white rounded-full mr-3"></div>
-                <h2 className="text-3xl font-bold">Our Projects</h2>
+                <h2 className="text-3xl font-bold">Our Events</h2>
               </div>
-              <h3 className="text-2xl font-bold mb-4">The Hunger Project</h3>
+              <h3 className="text-2xl font-bold mb-4">The Hunger Event</h3>
               <p className="text-orange-100 mb-6 leading-relaxed">
-                PJR's Hunger Project is dedicated to feeding underprivileged children through community kitchen initiatives, providing nutritious meals, and creating sustainable solutions. We have successfully implemented past initiatives and continue to raise funds for ongoing missions.
+                PJR's Hunger Event is dedicated to feeding underprivileged children through community kitchen initiatives, providing nutritious meals, and creating sustainable solutions. We have successfully implemented past initiatives and continue to raise funds for ongoing missions.
               </p>
               <Button 
                 variant="outline"

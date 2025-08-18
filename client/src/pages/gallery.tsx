@@ -39,7 +39,7 @@ const galleryItems = [
     category: "environment",
     image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400",
     alt: "Community members participating in large-scale tree planting initiative",
-    title: "Reforestation Project"
+    title: "Reforestation Event"
   },
   {
     id: 6,
@@ -111,7 +111,7 @@ export default function Gallery() {
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-warm-orange mb-2">120</div>
-              <p className="text-gray-600 font-medium">Projects Documented</p>
+              <p className="text-gray-600 font-medium">Events Documented</p>
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-forest mb-2">25</div>
@@ -146,7 +146,7 @@ export default function Gallery() {
                 }`}
                 data-testid={`filter-${category}`}
               >
-                {category === "all" ? "All Projects" : category}
+                {category === "all" ? "All Events" : category}
               </button>
             ))}
           </motion.div>

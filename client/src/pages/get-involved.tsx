@@ -26,7 +26,7 @@ const partnershipOpportunities = [
   },
   {
     icon: BookOpen,
-    title: "Skills-Based Consulting Projects",
+    title: "Skills-Based Consulting Events",
     description: "Share your professional expertise to help us improve community kitchen operations and program effectiveness."
   },
   {
@@ -58,7 +58,7 @@ const opportunityTypes = [
     icon: Briefcase,
     title: "Professional Skills Volunteering",
     description: "Contribute your professional expertise in areas like marketing, finance, IT, or project management.",
-    commitment: "Project-based"
+    commitment: "Event-based"
   }
 ];
 

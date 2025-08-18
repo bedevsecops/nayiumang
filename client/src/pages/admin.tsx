@@ -51,6 +51,7 @@ interface Donation {
 export default function AdminPanel() {
   const [volunteers, setVolunteers] = useState<Volunteer[]>([]);
   const [donations, setDonations] = useState<Donation[]>([]);
+  const [adminUsers, setAdminUsers] = useState<Array<{ id: string; fullName: string; username: string; email: string; role: string; status: string; createdAt: string; }>>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterStatus, setFilterStatus] = useState("all");
@@ -75,9 +76,10 @@ export default function AdminPanel() {
 
   const fetchData = async () => {
     try {
-      const [volunteersRes, donationsRes] = await Promise.all([
+      const [volunteersRes, donationsRes, adminsRes] = await Promise.all([
         fetch('/api/volunteers'),
-        fetch('/api/donations')
+        fetch('/api/donations'),
+        fetch('/api/admin/users')
       ]);
       
       if (volunteersRes.ok) {
@@ -88,6 +90,11 @@ export default function AdminPanel() {
       if (donationsRes.ok) {
         const donationsData = await donationsRes.json();
         setDonations(donationsData);
+      }
+
+      if (adminsRes.ok) {
+        const adminsData = await adminsRes.json();
+        setAdminUsers(adminsData);
       }
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -184,8 +191,7 @@ export default function AdminPanel() {
           title: "Success",
           description: "Admin user deleted successfully",
         });
-        // Refresh admin users list
-        fetchData();
+        setAdminUsers(prev => prev.filter(user => user.id !== id));
       } else {
         toast({
           title: "Error",
@@ -630,44 +636,7 @@ export default function AdminPanel() {
                       </tr>
                     </thead>
                     <tbody>
-                      {[
-                        {
-                          id: "1",
-                          fullName: "Super Administrator",
-                          username: "admin",
-                          email: "admin@nayiumang.com",
-                          role: "Super Admin",
-                          status: "Active",
-                          createdAt: "2024-01-15"
-                        },
-                        {
-                          id: "2",
-                          fullName: "Program Manager",
-                          username: "program_manager",
-                          email: "programs@nayiumang.com",
-                          role: "Admin",
-                          status: "Active",
-                          createdAt: "2024-02-01"
-                        },
-                        {
-                          id: "3",
-                          fullName: "Volunteer Coordinator",
-                          username: "volunteer_coord",
-                          email: "volunteers@nayiumang.com",
-                          role: "Moderator",
-                          status: "Active",
-                          createdAt: "2024-02-15"
-                        },
-                        {
-                          id: "4",
-                          fullName: "Finance Manager",
-                          username: "finance_mgr",
-                          email: "finance@nayiumang.com",
-                          role: "Admin",
-                          status: "Inactive",
-                          createdAt: "2024-01-20"
-                        }
-                      ].map((admin) => (
+                      {adminUsers.map((admin) => (
                         <tr key={admin.id} className="border-b border-gray-100 hover:bg-gray-50">
                           <td className="py-3 px-4">
                             <p className="font-medium text-gray-900">{admin.fullName}</p>
@@ -686,7 +655,7 @@ export default function AdminPanel() {
                           </td>
                           <td className="py-3 px-4">
                             <Badge 
-                              className={admin.status === "Active" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}
+                              className={admin.status === "Active" || admin.status === "active" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}
                             >
                               {admin.status}
                             </Badge>
