@@ -4,10 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class RedirectIfAdminAuthenticated
+class ForceHttps
 {
     /**
      * Handle an incoming request.
@@ -16,13 +15,9 @@ class RedirectIfAdminAuthenticated
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Force HTTPS in production
+        // Force HTTPS in production environment
         if (!$request->secure() && app()->environment('production')) {
-            return redirect()->secure($request->getRequestUri());
-        }
-
-        if (Auth::guard('admin')->check()) {
-            return redirect('/admin/dashboard');
+            return redirect()->secure($request->getRequestUri(), 301);
         }
 
         return $next($request);

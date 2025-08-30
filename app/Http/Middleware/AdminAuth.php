@@ -16,6 +16,11 @@ class AdminAuth
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // Force HTTPS in production
+        if (!$request->secure() && app()->environment('production')) {
+            return redirect()->secure($request->getRequestUri());
+        }
+
         if (!Auth::guard('admin')->check()) {
             return redirect('/admin/login');
         }

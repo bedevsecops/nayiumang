@@ -16,7 +16,7 @@ Route::get('/register', [RegistrationController::class, 'index'])->name('registe
 Route::post('/api/registrations', [RegistrationController::class, 'store'])->name('api.registrations.store');
 
 // Admin Routes
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['force.https', 'secure.headers'])->group(function () {
     // Admin Authentication Routes (redirect to dashboard if already logged in)
     Route::middleware(['admin.guest'])->group(function () {
         Route::get('/', function () {
