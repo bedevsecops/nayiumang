@@ -10,9 +10,18 @@ class Registration extends Model
     use HasFactory;
 
     protected $fillable = [
-        'full_name',
-        'mobile',
+        'name',
+        'phone',
         'email',
         'gender',
+        'age',
+        'address',
+        'education',
+        'occupation',
+        'skills',
+        'motivation',
+        // Legacy field names for backward compatibility
+        'full_name',
+        'mobile',
     ];
 }

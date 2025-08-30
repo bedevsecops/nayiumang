@@ -14,7 +14,7 @@ class RegistrationController extends Controller
         return view('registration');
     }
 
-    public function store(Request $request): JsonResponse
+    public function store(Request $request)
     {
         $validated = $request->validate([
             'full_name' => 'required|string|max:255',
@@ -24,15 +24,25 @@ class RegistrationController extends Controller
         ]);
 
         $registration = Registration::create([
-            'full_name' => $validated['full_name'],
-            'mobile' => $validated['mobile'],
+            // New column names (for admin panel)
+            'name' => $validated['full_name'],
+            'phone' => $validated['mobile'],
             'email' => $validated['email'],
             'gender' => $validated['gender'] ?? null,
+            // Legacy column names (for backward compatibility)
+            'full_name' => $validated['full_name'],
+            'mobile' => $validated['mobile'],
         ]);
 
-        return response()->json([
-            'message' => 'नोंदणी यशस्वी झाली!',
-            'registration' => $registration
-        ], 201);
+        // Check if request expects JSON (API request)
+        if ($request->expectsJson() || $request->is('api/*')) {
+            return response()->json([
+                'message' => 'नोंदणी यशस्वी झाली!',
+                'registration' => $registration
+            ], 201);
+        }
+
+        // Web request - redirect back with success message
+        return redirect()->back()->with('success', 'नोंदणी यशस्वी झाली! आम्ही लवकरच तुमच्याशी संपर्क साधू.');
     }
 }

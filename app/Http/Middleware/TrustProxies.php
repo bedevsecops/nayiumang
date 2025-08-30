@@ -13,7 +13,7 @@ class TrustProxies
      *
      * @var array<int, string>|string|null
      */
-    protected $proxies = '*';
+    protected $proxies = ['*'];
 
     /**
      * The headers that should be used to detect proxies.
@@ -45,6 +45,11 @@ class TrustProxies
      */
     protected function proxies()
     {
+        // Ensure we always return an array for setTrustedProxies
+        if ($this->proxies === '*') {
+            return ['*'];
+        }
+
         return $this->proxies;
     }
 

@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ProfileController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/register', [RegistrationController::class, 'index'])->name('register');
+Route::post('/register', [RegistrationController::class, 'store'])->name('register.store');
 
 // API Routes
 Route::post('/api/registrations', [RegistrationController::class, 'store'])->name('api.registrations.store');

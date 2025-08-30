@@ -29,7 +29,10 @@ class DashboardController extends Controller
             $query->where(function($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%")
                   ->orWhere('email', 'like', "%{$search}%")
-                  ->orWhere('phone', 'like', "%{$search}%");
+                  ->orWhere('phone', 'like', "%{$search}%")
+                  // Also search in legacy field names for backward compatibility
+                  ->orWhere('full_name', 'like', "%{$search}%")
+                  ->orWhere('mobile', 'like', "%{$search}%");
             });
         }
 
