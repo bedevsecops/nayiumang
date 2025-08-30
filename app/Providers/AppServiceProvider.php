@@ -29,16 +29,10 @@ class AppServiceProvider extends ServiceProvider
      */
     private function configureForAzure(): void
     {
-        // Detect if running on Azure App Service
+        // Detect if running on Azure App Service or production
         if ($this->isAzureAppService()) {
-            // Force HTTPS
+            // Force HTTPS for all URLs
             URL::forceScheme('https');
-
-            // Configure trusted proxies
-            $this->app['request']->setTrustedProxies(
-                ['*'], // Trust all proxies
-                \Illuminate\Http\Request::HEADER_X_FORWARDED_ALL
-            );
         }
     }
 
